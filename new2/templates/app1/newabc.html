@@ -1,0 +1,19 @@
+<html>
+<body>
+
+{{tag_var}}
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'demoapp/style.css' %}">
+
+<h1>Mission Complete</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form1.as_p}}
+    <input type="Submit" value="Submit" />
+</form>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+class TestContextManager:
+    def __enter__(self):
+        print('Entered into context manager!')
+    def __exit__(self, *args):
+        print('Exiting context manager!')
+
+with TestContextManager():
+    print('Inside context manager!')
+with TestContextManager():
+    raise Exception()
+# Ankush, Rashika, Yashika and Swetha have a look at this code and if
+# possible run it.
+# This will give you the knowledge of how Context Manager works in Python.
+#
+# After running this code
+# add this in line 9 and 10
+# with TestContextManager():
+#     raise Exception()
