@@ -34,17 +34,35 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user'
+    'user',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
 ]
 
 AUTH_USER_MODEL='user.CustomUser'
 
-LOGIN_REDIRECT_URL='/home'
-LOGOUT_REDIRECT_URL='/home'
+LOGING_REDIRECT_URL = '/home'
+LOGOUT_REDIRECT_URL = '/home'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_USERNAME_REQUIRED=False
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
